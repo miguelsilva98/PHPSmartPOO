@@ -1,6 +1,11 @@
 <?php
 
-copy("DaoGenerico.interface.php", "interface.php.php");
-chmod("interface.php.php", 0777);
-rename("interface.php", "nbproject/DaoGenerico.interface.php");
-chmod("nbproject/DaoGenerico.interface.php", 0777);
+$arquivos = [
+    'arquivo' => array('nbproject/private/private.properties', 'teste'),
+    'destino' => array('nbproject/private/', 'tt')
+];
+
+
+for ($i = 0; $i < count($arquivos); $i++):
+    echo $arquivos['arquivo'][$i] . ' <br/>';
+endfor;

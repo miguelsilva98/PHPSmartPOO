@@ -235,4 +235,22 @@ class SmartPOO {
         return $texto;
     }
 
+    function zipar($nomeZip = 'arquivo.zip', $files = [], $baixar = false) {
+        $zip = new ZipArchive();
+        echo $nomeZip . " Será baixado em instantes";
+        if ($zip->open($nomeZip, ZipArchive::CREATE) === true) :
+            foreach ($files as $arquivo):
+                $zip->addFile($arquivo, $arquivo);
+            endforeach;
+            $zip->close();
+            chmod($nomeZip, 0777);
+            if ($baixar != false):
+                echo "<script type='text/javascript'>  location.href = '$nomeZip' </script>";
+               // unlink($nomeZip);
+            endif;
+        else:
+            echo "Falha";
+        endif;
+    }
+
 }

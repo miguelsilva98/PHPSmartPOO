@@ -40,7 +40,9 @@ session_start();
                         </div>
                         <button type="button" class="btn btn-default" onclick="novaVariavel()">ADD Variavel</button>
                         <button type="button" class="btn btn-default" onclick="novaVariavelPK()">ADD PK</button>
-                        <button type="button"class="btn btn-default"  onclick="criar()">ver resultado</button>
+                        <button type="reset"class="btn btn-default"  onclick="criar()">ver resultado</button>
+                        <button type="reset"class="btn btn-default"  onclick="baixar()">Baixar</button>
+
                     </form>
                 </div>
             </div>
@@ -89,7 +91,6 @@ session_start();
                                 $("select[name='tipo[]']").each(function () {
                                     tipo.push($(this).val());
                                 });
-                                alert(tipo);
                                 $.ajax({
                                     type: 'POST',
                                     url: 'criar.php',
@@ -102,6 +103,23 @@ session_start();
                                         nomeClass: $('#nomeClass').val(),
                                         nomeProjeto: $('#nomeProjeto').val(),
                                         tipo: tipo
+                                    },
+                                    success: function (msg)
+                                    {
+                                        $("#resultado").html(msg);
+                                    }});
+                            }
+                            function baixar() {
+                                $.ajax({
+                                    type: 'POST',
+                                    url: 'criar.php',
+                                    beforeSend: function () {
+                                        // $("#resultado").html('<div class="loader"></div>');
+                                    },
+                                    data: {
+                                        nomeClass: $('#nomeClass').val(),
+                                        nomeProjeto: $('#nomeProjeto').val(),
+                                        acao: 'baixar'
                                     },
                                     success: function (msg)
                                     {
