@@ -3,7 +3,7 @@
 class SmartPOO {
 
     function modelo($class, $variavel) {
-        $texto = htmlentities("<?php") . "\nclass " . $class . "{ \n";
+        $texto = "<?php\nclass " . $class . "{ \n";
 
         foreach ($variavel as $var) : //variaveis
             $texto .= "private $" . $var . ";\n";
@@ -22,7 +22,7 @@ class SmartPOO {
         $texto .= "\n}";
 
         foreach ($variavel as $var) { //metodo get
-            $texto .= " <p> function get" . ucfirst($var) . "() {
+            $texto .= "function get" . ucfirst($var) . "() {
          return \$this->" . $var . ";
     }";
         }
@@ -37,7 +37,7 @@ class SmartPOO {
 
     function dao($class, $pk, $variavel, $tipagem) {
 
-        $texto = htmlentities("<?php") . "\nrequire_once 'DbConnection.class.php';
+        $texto = "<?php \nrequire_once 'DbConnection.class.php';
         require_once 'DaoGenerico.interface.php';
         require_once '../../modelo/$class.class.php';
 
@@ -54,9 +54,9 @@ class SmartPOO {
         $texto .= " where ";
 
         foreach ($pk as $var):
-            $texto .= $var . "=:$var and";
+            $texto .= $var . "=:$var and ";
         endforeach;
-        $texto = substr($texto, 0, strlen($texto) - 3) . "\";\n"; //Remover 3 ultimos caracters
+        $texto = substr($texto, 0, strlen($texto) - 4) . "\";\n"; //Remover 3 ultimos caracters
 
         $texto .= $this->prepareBind($variavel, $tipagem) . "
         
@@ -100,9 +100,9 @@ class SmartPOO {
         public function obterTodosByParametro(\$sql, \$atributoSQL=NULL, \$variavel=NULL, \$pdoPARAM=NULL) {
         \$conexao = DbConnection::retornaConexao();
         \$statement = \$conexao->prepare(\$sql);
-        \if(\$atributoSQL != null):
+        if(\$atributoSQL != null):
         \$statement->bindValue(\$atributoSQL, \$variavel, \$pdoPARAM);
-        \endif;
+        endif;
         \$statement->execute();
         \$statement = \$statement->fetchAll(PDO::FETCH_ASSOC);
         \$lista = null;
@@ -126,7 +126,7 @@ class SmartPOO {
         foreach ($pk as $var):
             $texto .= $var . "=:$var and ";
         endforeach;
-        $texto = substr($texto, 0, strlen($texto) - 3) . "\";"; //Remover ultimo caracter
+        $texto = substr($texto, 0, strlen($texto) - 4) . "\";"; //Remover ultimo caracter
         $texto .= $this->prepareBind($variavel, $tipagem) . "
     }
 
@@ -149,7 +149,7 @@ class SmartPOO {
     }
 
     function controle($class) {
-        $texto = htmlentities("<?php") . "\n
+        $texto ="<?php\n
         require_once '../../dao/Dao$class.class.php';
         require_once '../../modelo/$class.class.php';
 
@@ -187,7 +187,7 @@ class SmartPOO {
     }
 
     function gerenciamento($class, $variaveis) {
-        $texto = htmlentities("<?php") . "\n
+        $texto ="<?php\n
         if (!isset(\$_SESSION)) {
             session_start();
         }
@@ -246,7 +246,7 @@ class SmartPOO {
             chmod($nomeZip, 0777);
             if ($baixar != false):
                 echo "<script type='text/javascript'>  location.href = '$nomeZip' </script>";
-               // unlink($nomeZip);
+            // unlink($nomeZip);
             endif;
         else:
             echo "Falha";

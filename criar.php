@@ -27,8 +27,6 @@ switch ($acao):
 
         // Compacta
         $smart->zipar('nb.zip', $arquivos,true);
-
-
         break;
     case 'criar':
         if (!empty($_POST['nomeClass']) && !empty($_POST['nomeProjeto']) && !empty($_POST['tipo']) && !empty($_POST['pk'])):
@@ -43,7 +41,7 @@ switch ($acao):
             $tipagem = $_POST['tipo'];
 
             //Criar projeto
-            $projeto = "projetos/" . $_POST['nomeProjeto'] . "/";
+            $projeto = "Projetos/" . $_POST['nomeProjeto'] . "/";
             if (!file_exists($projeto)):
                 mkdir($projeto);
                 chmod($projeto, 0777);

@@ -40,8 +40,8 @@ session_start();
                         </div>
                         <button type="button" class="btn btn-default" onclick="novaVariavel()">ADD Variavel</button>
                         <button type="button" class="btn btn-default" onclick="novaVariavelPK()">ADD PK</button>
-                        <button type="reset"class="btn btn-default"  onclick="criar()">ver resultado</button>
-                        <button type="reset"class="btn btn-default"  onclick="baixar()">Baixar</button>
+                        <button type="button" class="btn btn-default"  onclick="cria()">ver resultado</button>
+                        <button type="reset" class="btn btn-default"  onclick="baixar()">Baixar</button>
 
                     </form>
                 </div>
@@ -78,7 +78,7 @@ session_start();
                                 newVar.html(newVar.html() + criar);
                             }
 
-                            function criar() {
+                            function cria() {
                                 var variaveis = new Array();
                                 $("input[name='var[]']").each(function () {
                                     variaveis.push($(this).val());
@@ -102,13 +102,15 @@ session_start();
                                         pk: pk,
                                         nomeClass: $('#nomeClass').val(),
                                         nomeProjeto: $('#nomeProjeto').val(),
-                                        tipo: tipo
+                                        tipo: tipo,
+                                        acao: 'criar'
                                     },
                                     success: function (msg)
                                     {
                                         $("#resultado").html(msg);
                                     }});
                             }
+
                             function baixar() {
                                 $.ajax({
                                     type: 'POST',
