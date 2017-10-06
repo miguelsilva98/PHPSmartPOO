@@ -15,20 +15,20 @@
 
         switch ($acao) :
 case 'inserir': 
-         if (!empty($_POST['idPessoaFisica']) && !empty($_POST['nome']) && !empty($_POST['dataNascimento']) && !empty($_POST['cpf']) && !empty($_POST['sexo']) && !empty($_POST['numCelular']) && !empty($_POST['numFixo']) && !empty($_POST['statusConta']) && !empty($_POST['idEndereco']) && !empty($_POST['deficiencia']) && !empty($_POST['email']) && !empty($_POST['ipPessoa']) && !empty($_POST['foto'])):
-$pessoafisica= new PessoaFisica($_POST['idPessoaFisica'] , $_POST['nome'] , $_POST['dataNascimento'] , $_POST['cpf'] , $_POST['sexo'] , $_POST['numCelular'] , $_POST['numFixo'] , $_POST['statusConta'] , $_POST['idEndereco'] , $_POST['deficiencia'] , $_POST['email'] , $_POST['ipPessoa'] , $_POST['foto']); 
+         if (!empty($_POST['idLogin']) && !empty($_POST['nomePessoa']) && !empty($_POST['dataNascimento']) && !empty($_POST['cpf']) && !empty($_POST['sexo']) && !empty($_POST['numCelular']) && !empty($_POST['numFixo']) && !empty($_POST['idEndereco']) && !empty($_POST['cargo']) && !empty($_POST['deficiencia'])):
+$pessoafisica= new PessoaFisica($_POST['idLogin'] , $_POST['nomePessoa'] , $_POST['dataNascimento'] , $_POST['cpf'] , $_POST['sexo'] , $_POST['numCelular'] , $_POST['numFixo'] , $_POST['idEndereco'] , $_POST['cargo'] , $_POST['deficiencia']); 
        $controle->inserir($pessoafisica);
            endif; 
            break;
 case 'atualizar': 
-         if (!empty($_POST['idPessoaFisica']) && !empty($_POST['nome']) && !empty($_POST['dataNascimento']) && !empty($_POST['cpf']) && !empty($_POST['sexo']) && !empty($_POST['numCelular']) && !empty($_POST['numFixo']) && !empty($_POST['statusConta']) && !empty($_POST['idEndereco']) && !empty($_POST['deficiencia']) && !empty($_POST['email']) && !empty($_POST['ipPessoa']) && !empty($_POST['foto'])):
-$pessoafisica= new PessoaFisica($_POST['idPessoaFisica'] , $_POST['nome'] , $_POST['dataNascimento'] , $_POST['cpf'] , $_POST['sexo'] , $_POST['numCelular'] , $_POST['numFixo'] , $_POST['statusConta'] , $_POST['idEndereco'] , $_POST['deficiencia'] , $_POST['email'] , $_POST['ipPessoa'] , $_POST['foto']); 
+         if (!empty($_POST['idLogin']) && !empty($_POST['nomePessoa']) && !empty($_POST['dataNascimento']) && !empty($_POST['cpf']) && !empty($_POST['sexo']) && !empty($_POST['numCelular']) && !empty($_POST['numFixo']) && !empty($_POST['idEndereco']) && !empty($_POST['cargo']) && !empty($_POST['deficiencia'])):
+$pessoafisica= new PessoaFisica($_POST['idLogin'] , $_POST['nomePessoa'] , $_POST['dataNascimento'] , $_POST['cpf'] , $_POST['sexo'] , $_POST['numCelular'] , $_POST['numFixo'] , $_POST['idEndereco'] , $_POST['cargo'] , $_POST['deficiencia']); 
        $controle->atualizar($pessoafisica);
            endif; 
            break;
 case 'remover': 
-         if (!empty($_POST['idPessoaFisica']) && !empty($_POST['nome']) && !empty($_POST['dataNascimento']) && !empty($_POST['cpf']) && !empty($_POST['sexo']) && !empty($_POST['numCelular']) && !empty($_POST['numFixo']) && !empty($_POST['statusConta']) && !empty($_POST['idEndereco']) && !empty($_POST['deficiencia']) && !empty($_POST['email']) && !empty($_POST['ipPessoa']) && !empty($_POST['foto'])):
-$pessoafisica= new PessoaFisica($_POST['idPessoaFisica'] , $_POST['nome'] , $_POST['dataNascimento'] , $_POST['cpf'] , $_POST['sexo'] , $_POST['numCelular'] , $_POST['numFixo'] , $_POST['statusConta'] , $_POST['idEndereco'] , $_POST['deficiencia'] , $_POST['email'] , $_POST['ipPessoa'] , $_POST['foto']); 
+         if (!empty($_POST['idLogin']) && !empty($_POST['nomePessoa']) && !empty($_POST['dataNascimento']) && !empty($_POST['cpf']) && !empty($_POST['sexo']) && !empty($_POST['numCelular']) && !empty($_POST['numFixo']) && !empty($_POST['idEndereco']) && !empty($_POST['cargo']) && !empty($_POST['deficiencia'])):
+$pessoafisica= new PessoaFisica($_POST['idLogin'] , $_POST['nomePessoa'] , $_POST['dataNascimento'] , $_POST['cpf'] , $_POST['sexo'] , $_POST['numCelular'] , $_POST['numFixo'] , $_POST['idEndereco'] , $_POST['cargo'] , $_POST['deficiencia']); 
        $controle->remover($pessoafisica);
            endif; 
            break;case 'listarTodos':

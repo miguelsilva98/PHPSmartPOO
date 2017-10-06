@@ -1,36 +1,30 @@
 <?php
 class PessoaFisica{ 
-private $idPessoaFisica;
-private $nome;
+private $idLogin;
+private $nomePessoa;
 private $dataNascimento;
 private $cpf;
 private $sexo;
 private $numCelular;
 private $numFixo;
-private $statusConta;
 private $idEndereco;
+private $cargo;
 private $deficiencia;
-private $email;
-private $ipPessoa;
-private $foto;
-function __construct($idPessoaFisica,$nome,$dataNascimento,$cpf,$sexo,$numCelular,$numFixo,$statusConta,$idEndereco,$deficiencia,$email,$ipPessoa,$foto){
-$this->idPessoaFisica = idPessoaFisica;
-$this->nome = nome;
+function __construct($idLogin,$nomePessoa,$dataNascimento,$cpf,$sexo,$numCelular,$numFixo,$idEndereco,$cargo,$deficiencia){
+$this->idLogin = idLogin;
+$this->nomePessoa = nomePessoa;
 $this->dataNascimento = dataNascimento;
 $this->cpf = cpf;
 $this->sexo = sexo;
 $this->numCelular = numCelular;
 $this->numFixo = numFixo;
-$this->statusConta = statusConta;
 $this->idEndereco = idEndereco;
+$this->cargo = cargo;
 $this->deficiencia = deficiencia;
-$this->email = email;
-$this->ipPessoa = ipPessoa;
-$this->foto = foto;
-}function getIdPessoaFisica() {
-         return $this->idPessoaFisica;
-    }function getNome() {
-         return $this->nome;
+}function getIdLogin() {
+         return $this->idLogin;
+    }function getNomePessoa() {
+         return $this->nomePessoa;
     }function getDataNascimento() {
          return $this->dataNascimento;
     }function getCpf() {
@@ -41,17 +35,11 @@ $this->foto = foto;
          return $this->numCelular;
     }function getNumFixo() {
          return $this->numFixo;
-    }function getStatusConta() {
-         return $this->statusConta;
     }function getIdEndereco() {
          return $this->idEndereco;
+    }function getCargo() {
+         return $this->cargo;
     }function getDeficiencia() {
          return $this->deficiencia;
-    }function getEmail() {
-         return $this->email;
-    }function getIpPessoa() {
-         return $this->ipPessoa;
-    }function getFoto() {
-         return $this->foto;
     }
 }
