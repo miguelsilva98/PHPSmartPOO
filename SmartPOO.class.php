@@ -17,7 +17,7 @@ class SmartPOO {
         $texto .= "){";
 
         foreach ($variavel as $var):
-            $texto .= "\n\$this->" . $var . " = " . $var . ";";
+            $texto .= "\n\$this->" . $var . " = $" . $var . ";";
         endforeach;
         $texto .= "\n}";
 
@@ -110,7 +110,7 @@ class SmartPOO {
             foreach (\$statement as \$linha) {
                 \$lista [] = new $class(";
         foreach ($variavel as $var):
-            $texto .= "\$statement['$var'],";
+            $texto .= "\$linha['$var'],";
         endforeach;
         $texto = substr($texto, 0, strlen($texto) - 1); //Remover ultimo caracter
         $texto .= ");
